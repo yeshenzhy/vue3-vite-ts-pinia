@@ -1,13 +1,45 @@
 /*
- * @Descripttion:
  * @Author: zhy
- * @Date: 2022-04-20 20:31:02
- * @LastEditTime: 2022-04-21 11:42:46
+ * @Date: 2021-11-30 15:43:56
+ * @Description:
+ * @LastEditTime: 2022-04-21 17:39:09
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-// https://vitejs.dev/config/
-export default defineConfig({
+const { resolve } = require('path');
+
+const config = () => defineConfig({
+    base: '/',
     plugins: [vue()],
+    resolve: {
+        alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData:
+                `
+                  @import "@/assets/style/reset.scss";
+                `,
+            },
+        },
+    },
+    build: {
+        sourcemap: false, // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
+        rollupOptions: {
+            output: {
+                chunkFileNames: 'js/[name]-[hash].js',
+                entryFileNames: 'js/[name]-[hash].js',
+                assetFileNames: '[ext]/[name]-[hash].[ext]',
+            },
+        },
+
+    },
+    server: {
+        hmr: {
+            overlay: false,
+        },
+    },
 });
+export default config;

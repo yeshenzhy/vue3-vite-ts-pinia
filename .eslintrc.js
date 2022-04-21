@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:40:29
- * @LastEditTime: 2022-04-21 11:36:55
+ * @LastEditTime: 2022-04-21 19:01:16
  */
 module.exports = {
     env: {
@@ -40,7 +40,9 @@ module.exports = {
     rules: {
         indent: ['error', 4],
         'vue/html-indent': ['error', 4],
-        'vue/max-attributes-per-line': ['error', {
+        'import/extensions': 0,
+        'import/no-unresolved': 0,
+        'vue/max-attributes-per-line': ['error', { // 标签属性超过三个换行
             singleline: {
                 max: 3,
             },
@@ -48,5 +50,6 @@ module.exports = {
                 max: 1,
             },
         }],
+        'vue/singleline-html-element-content-newline': 'off', // 单行html在一行显示
     },
 };
