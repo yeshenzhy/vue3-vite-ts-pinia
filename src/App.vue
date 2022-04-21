@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:31:02
- * @LastEditTime: 2022-04-20 21:38:37
+ * @LastEditTime: 2022-04-21 10:35:13
 -->
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
@@ -17,9 +17,10 @@ import HelloWorld from './components/HelloWorld.vue';
 
 <style lang="scss">
 #app {
-    height: 100%;
-    width: 100%;
-    padding: 0 20px;
     position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+
 }
 </style>

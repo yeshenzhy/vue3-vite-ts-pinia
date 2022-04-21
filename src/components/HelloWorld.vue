@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:31:02
- * @LastEditTime: 2022-04-20 21:37:44
+ * @LastEditTime: 2022-04-21 11:11:22
 -->
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -53,9 +53,9 @@ label {
 }
 
 code {
-    background-color: #eee;
     padding: 2px 4px;
-    border-radius: 4px;
     color: #304455;
+    background-color: #eee;
+    border-radius: 4px;
 }
 </style>
