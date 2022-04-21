@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:31:02
- * @LastEditTime: 2022-04-21 11:11:22
+ * @LastEditTime: 2022-04-21 11:36:30
 -->
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -10,6 +10,7 @@ import { ref } from 'vue';
 defineProps<{ msg: string }>();
 
 const count = ref(0);
+console.log(count);
 </script>
 
 <template>
@@ -45,6 +46,7 @@ const count = ref(0);
 a {
     font-size: 30px;
     color: #42b983;
+
 }
 
 label {
