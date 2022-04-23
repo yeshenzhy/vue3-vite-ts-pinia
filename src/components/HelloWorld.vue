@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:31:02
- * @LastEditTime: 2022-04-21 11:42:09
+ * @LastEditTime: 2022-04-23 19:10:56
 -->
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -45,11 +45,10 @@ const count = ref(0);
 a {
     font-size: 30px;
     color: #42b983;
-
 }
 
 label {
-    margin: 0 .5em;
+    margin: 0 0.5em;
     font-weight: bold;
 }
 
