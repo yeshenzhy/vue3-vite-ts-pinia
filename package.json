@@ -7,10 +7,13 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --host",
     "lint": "eslint src/**/*.{js,jsx,vue,ts,tsx} --fix",
-    "prelint": "stylelint src/**/*.{js,jsx,vue,ts,tsx} --fix"
+    "prelint": "stylelint src/**/*.{js,jsx,vue,ts,tsx} --fix",
+    "plop": "plop"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^2.3.1",
+    "ant-design-vue": "^3.2.0",
+    "axios": "^0.26.1",
     "pinia": "^2.0.13",
     "vite": "^2.9.5",
     "vue": "^3.2.25",
@@ -18,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
+    "@types/store": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "eslint": "^8.13.0",
