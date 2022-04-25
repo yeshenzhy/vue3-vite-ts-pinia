@@ -2,10 +2,10 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-24 14:36:48
- * @LastEditTime: 2022-04-24 16:25:49
+ * @LastEditTime: 2022-04-25 12:33:29
  */
 import { defineStore } from 'pinia';
-import storage from 'store';
+import { setToken, removeToken } from '@/utils/auth';
 import { login as userLogin, logout as userLogout } from '@/api/user';
 
 interface UserState {
@@ -35,9 +35,9 @@ const useUserStore = defineStore({
         async login(loginForm: LoginData) {
             try {
                 const res = await userLogin(loginForm);
-                storage.set('Access-Token', res.token);
+                setToken(res.token);
             } catch (err) {
-                storage.remove('Access-Token');
+                removeToken();
                 throw err;
             }
         },
@@ -45,7 +45,7 @@ const useUserStore = defineStore({
         async logout() {
             await userLogout();
             // this.resetInfo();
-            storage.remove('Access-Token');
+            removeToken();
         },
     },
 });

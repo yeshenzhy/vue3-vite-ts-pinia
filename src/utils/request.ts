@@ -2,13 +2,13 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-24 12:27:45
- * @LastEditTime: 2022-04-24 16:35:10
+ * @LastEditTime: 2022-04-25 12:44:39
  */
 import axios, {
     AxiosInstance, AxiosResponse, AxiosRequestConfig, AxiosError,
 } from 'axios';
-import storage from 'store';
 import { notification } from 'ant-design-vue';
+import { getToken } from '@/utils/auth';
 // import store from '@/store';
 import VueAxios from './axios';
 import ServerConfig from '@/utils/server-config';
@@ -17,7 +17,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 // 创建 axios 实例
 const request:AxiosInstance = axios.create({
     // API 请求的默认前缀
-    baseURL: process.env.VUE_APP_API_BASE_URL,
     timeout: 6000, // 请求超时时间
 });
 // axios中请求配置有baseURL选项，表示请求URL公共部分
@@ -27,7 +26,7 @@ const errorHandler = (error: AxiosError) => {
     if (error.response) {
         const { data } = error.response;
         // 从 localstorage 获取 token
-        const token = storage.get('Access-Token');
+        const token = getToken();
         if (error.response.status === 403) {
             notification.error({
                 message: 'Forbidden',
@@ -53,7 +52,7 @@ const errorHandler = (error: AxiosError) => {
 
 // request interceptor
 request.interceptors.request.use((config:AxiosRequestConfig) => {
-    const token = storage.get('Access-Token');
+    const token = getToken();
     // 如果 token 存在
     // 让每个请求携带自定义 token 请根据实际情况自行修改
     if (token) {
