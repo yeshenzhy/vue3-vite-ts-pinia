@@ -2,7 +2,7 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-20 20:40:29
- * @LastEditTime: 2022-04-24 15:36:17
+ * @LastEditTime: 2022-04-26 17:50:15
  */
 module.exports = {
     env: {
@@ -39,6 +39,7 @@ module.exports = {
     },
     rules: {
         indent: ['error', 4],
+        'max-len': ['error', { code: 150, tabWidth: 4 }],
         'vue/html-indent': ['error', 4],
         'import/extensions': 0,
         'import/no-unresolved': 0,

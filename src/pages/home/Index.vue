@@ -2,41 +2,37 @@
  * @Descripttion:
  * @Author: zhy
  * @Date: 2022-04-21 16:55:29
- * @LastEditTime: 2022-04-25 14:01:18
+ * @LastEditTime: 2022-04-26 17:51:39
 -->
 <template>
-    <div class="home">home</div>
-    <a-button type="primary" :loading="iconLoading" @click="enterIconLoading">
-        <template #icon><PoweroffOutlined /></template>
-        延迟1s
-    </a-button>
+    <Suspense>
+        <template #default>
+            <AsyncComp />
+            <!-- <AsyncAddress/> -->
+        </template>
+
+        <template #fallback>
+            <h1>LOADING...</h1>
+        </template>
+    </Suspense>
 </template>
 
 <script setup lang="ts">
 import {
-    onMounted, onBeforeMount, onBeforeUnmount, ref,
+    onMounted, onBeforeMount, onBeforeUnmount, defineAsyncComponent,
 } from 'vue';
 
-interface DelayLoading {
-  delay: number;
-}
+const AsyncComp = defineAsyncComponent(() => import('./AsyncComp.vue'));
 
-const iconLoading = ref<boolean | DelayLoading>(false);
-const enterIconLoading = () => {
-    iconLoading.value = { delay: 1000 };
-
-    setTimeout(() => {
-        iconLoading.value = false;
-    }, 6000);
-};
+// **************************************************
 onBeforeMount(() => {
-    console.log(1111);
+
 });
 onMounted(() => {
-    console.log(222);
+
 });
 onBeforeUnmount(() => {
-    console.log(333);
+
 });
 </script>
 
